@@ -8,12 +8,27 @@ plugins {
 
 android {
     compileSdk 34
+    buildToolsVersion '34.0.0'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    signingConfigs {
+        debugConfig {
+            keyAlias 'Activaire'
+            keyPassword 'activ8190'
+            storeFile file('../../Android-Keys/Activaire App Key/activaire.jks')
+            storePassword 'activ8190'
+        }
+        releaseConfig {
+            keyAlias 'Activaire'
+            keyPassword 'activ8190'
+            storeFile file('../../Android-Keys/Activaire App Key/activaire.jks')
+            storePassword 'activ8190'
+        }
     }
     defaultConfig {
         applicationId "com.activaire.launcher"
@@ -24,7 +39,7 @@ android {
         versionName "1.60"
         vectorDrawables.useSupportLibrary = true
         resourceConfigurations += ['en', 'ru', 'uk', 'it', 'fr', 'es', 'de', 'pl', 'zh-rCN']
-        setProperty("archivesBaseName", "ActivaireLauncher_v" + versionName)
+        setProperty("archivesBaseName", "ActivaireLauncher-" + versionName)
     }
     packagingOptions {
         resources.excludes += "DebugProbesKt.bin"
@@ -36,10 +51,12 @@ android {
                 disable 'ResourceType'
             }
             minifyEnabled false
+            signingConfig signingConfigs.releaseConfig
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.debugConfig
         }
     }
     lint {
@@ -85,3 +102,160 @@ repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
+
+//android.applicationVariants.all { variant ->
+//    println "Build info: $variant.buildType"
+//    if (variant.buildType.name=="release") {
+//        println "Release mode"
+//        variant.getAssembleProvider().configure() {
+//            it.doLast {
+//                signReleaseApkWithMinixKeyJava11()
+//                signReleaseApkWithRockchipKeyJava11()
+////                signMinixSignedReleaseApkWithRockchipKeyJava11()
+////                signReleaseApkWithBothMinixAndRockchipKeysJava11()
+////                copyMinixSignedReleaseApkOverUnsignedReleaseApk()
+//                copyRockchipSignedReleaseApkOverUnsignedReleaseApk()
+////                copyBothMinixAndRockchipSignedReleaseApkOverUnsignedReleaseApk()
+//            }
+//        }
+//    } else {
+//        println "Debug mode"
+//        variant.getAssembleProvider().configure() {
+//            it.doLast {
+//                signDebugApkWithMinixKeyJava11()
+//                signDebugApkWithRockchipKeyJava11()
+////                signMinixSignedDebugApkWithRockchipKeyJava11()
+////                signDebugApkWithBothMinixAndRockchipKeysJava11()
+////                copyMinixSignedDebugApkOverUnsignedDebugApk()
+//                copyRockchipSignedDebugApkOverUnsignedDebugApk()
+////                copyBothMinixAndRockchipSignedDebugApkOverUnsignedDebugApk()
+//            }
+//        }
+//    }
+//}
+//
+//def signReleaseApkWithMinixKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", /*"--v1-signer-name", "MINIX", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", */"--key", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.pk8", "--cert", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-release-minix.apk",
+//                "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def signReleaseApkWithRockchipKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", /*"--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", */"--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-release-rockchip.apk",
+//                "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def signMinixSignedReleaseApkWithRockchipKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--append-signature",
+//                "--verbose", "--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-release-minix-and-rockchip.apk",
+//                "../../apk-uri/$archivesBaseName-release-minix.apk"
+//    }
+//}
+//
+//def signReleaseApkWithBothMinixAndRockchipKeysJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", "--v1-signer-name", "MINIX", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.pk8", "--cert", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.x509.pem",
+//                "--next-signer",
+//                "--verbose", "--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def signDebugApkWithMinixKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", /*"--v1-signer-name", "MINIX", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", */"--key", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.pk8", "--cert", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-debug-minix.apk",
+//                "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}
+//
+//def signDebugApkWithRockchipKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", /*"--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", */"--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-debug-rockchip.apk",
+//                "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}
+//
+//def signMinixSignedDebugApkWithRockchipKeyJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--append-signature",
+//                "--verbose", "--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "--out", "../../apk-uri/$archivesBaseName-debug-minix-and-rockchip.apk",
+//                "../../apk-uri/$archivesBaseName-debug-minix.apk"
+//    }
+//}
+//
+//def signDebugApkWithBothMinixAndRockchipKeysJava11() {
+//    exec {
+//        executable "/Users/cdarau/Library/Android/sdk/build-tools/34.0.0/apksigner"
+//        args "sign",
+//                "--verbose", "--v1-signer-name", "MINIX", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.pk8", "--cert", "../../Android-Keys/Minix Signing Keys (OEM)/platform4.x509.pem",
+//                "--next-signer",
+//                "--verbose", "--v1-signer-name", "ROCKCHIP", "--v3-signing-enabled", "false", "--v4-signing-enabled", "false", "--key", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.pk8", "--cert", "../../Android-Keys/Rockchip Signing Keys (OEM)/platform.x509.pem",
+//                "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}
+//
+//def copyMinixSignedReleaseApkOverUnsignedReleaseApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-release-minix.apk", "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def copyRockchipSignedReleaseApkOverUnsignedReleaseApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-release-rockchip.apk", "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def copyBothMinixAndRockchipSignedReleaseApkOverUnsignedReleaseApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-release-minix-and-rockchip.apk", "build/outputs/apk/release/$archivesBaseName-release.apk"
+//    }
+//}
+//
+//def copyMinixSignedDebugApkOverUnsignedDebugApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-debug-minix.apk", "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}
+//
+//def copyRockchipSignedDebugApkOverUnsignedDebugApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-debug-rockchip.apk", "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}
+//
+//def copyBothMinixAndRockchipSignedDebugApkOverUnsignedDebugApk() {
+//    exec {
+//        executable "cp"
+//        args "-rf", "../../apk-uri/$archivesBaseName-debug-minix-and-rockchip.apk", "build/intermediates/apk/debug/$archivesBaseName-debug.apk"
+//    }
+//}

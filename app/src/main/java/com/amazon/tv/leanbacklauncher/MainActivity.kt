@@ -28,9 +28,11 @@ import android.view.ViewGroup.OnHierarchyChangeListener
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.view.accessibility.AccessibilityManager
 import android.view.animation.LinearInterpolator
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.res.ResourcesCompat
@@ -272,6 +274,12 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
     var wallpaperView: LauncherWallpaper? = null
         private set
 
+    private var lockScreenView: View? = null
+    private var pinDisplay: TextView? = null
+    private var currentPin = ""
+    private val correctPin = "8190" // Default PIN, should be changed in production
+    private var isLocked = true
+
     interface IdleListener {
         fun onIdleStateChange(z: Boolean)
         fun onVisibilityChange(z: Boolean)
@@ -484,6 +492,20 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
             )
             // initializeWeather() // already in addWidget()
         }
+
+        // Initialize lock screen
+        lockScreenView = LayoutInflater.from(this).inflate(R.layout.lock_screen, null)
+        pinDisplay = lockScreenView?.findViewById(R.id.pinDisplay)
+        
+        // Add lock screen to the main layout
+        val mainLayout = findViewById<ViewGroup>(android.R.id.content)
+        mainLayout.addView(lockScreenView)
+        
+        // Setup PIN buttons
+        setupPinButtons()
+        
+        // Show lock screen
+        showLockScreen()
     }
 
     public override fun onDestroy() {
@@ -520,6 +542,10 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
     }
 
     override fun onBackPressed() {
+        if (isLocked) {
+            // Don't allow back press while locked
+            return
+        }
         super.onBackPressed()
         when {
             isInEditMode -> {
@@ -1888,6 +1914,53 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
             }
         }
         return false
+    }
+
+    private fun setupPinButtons() {
+        val buttons = arrayOf(
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
+            R.id.btnClear, R.id.btnEnter
+        )
+
+        buttons.forEach { id ->
+            lockScreenView?.findViewById<Button>(id)?.setOnClickListener {
+                when (id) {
+                    R.id.btnClear -> {
+                        currentPin = ""
+                        updatePinDisplay()
+                    }
+                    R.id.btnEnter -> {
+                        if (currentPin == correctPin) {
+                            isLocked = false
+                            hideLockScreen()
+                        } else {
+                            currentPin = ""
+                            updatePinDisplay()
+                            Toast.makeText(this, "Incorrect PIN", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else -> {
+                        if (currentPin.length < 4) {
+                            currentPin += (it as Button).text
+                            updatePinDisplay()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun updatePinDisplay() {
+        pinDisplay?.text = "*".repeat(currentPin.length)
+    }
+
+    private fun showLockScreen() {
+        lockScreenView?.visibility = View.VISIBLE
+    }
+
+    private fun hideLockScreen() {
+        lockScreenView?.visibility = View.GONE
     }
 
 }
