@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Bendrinti naudojant „%s“</string>
     <string name="abc_toolbar_collapse_description">Sutraukti</string>
     <string name="app_label">Pagrindinis ekranas</string>
-    <string name="app_name">„Leanback“ paleid. priemonė</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Automatiškai rūšiuoti pagal naujausią naudojimo informaciją</string>
     <string name="category_label_apps">Programos</string>
     <string name="category_label_games">Žaidimai</string>

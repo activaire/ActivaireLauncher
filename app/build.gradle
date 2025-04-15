@@ -16,7 +16,7 @@ android {
         jvmTarget = "11"
     }
     defaultConfig {
-        applicationId "com.amazon.tv.leanbacklauncher"
+        applicationId "com.activaire.launcher"
         minSdkVersion 22
         //noinspection ExpiredTargetSdkVersion,OldTargetApi
         targetSdkVersion 29
@@ -24,7 +24,7 @@ android {
         versionName "1.60"
         vectorDrawables.useSupportLibrary = true
         resourceConfigurations += ['en', 'ru', 'uk', 'it', 'fr', 'es', 'de', 'pl', 'zh-rCN']
-        setProperty("archivesBaseName", "LeanbackOnFire_v" + versionName)
+        setProperty("archivesBaseName", "ActivaireLauncher_v" + versionName)
     }
     packagingOptions {
         resources.excludes += "DebugProbesKt.bin"

@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%sと共有</string>
     <string name="abc_toolbar_collapse_description">折りたたむ</string>
     <string name="app_label">ホーム画面</string>
-    <string name="app_name">Leanback ランチャー</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">最近の使用状況に基づいて自動的に並べ替え</string>
     <string name="category_label_apps">アプリ</string>
     <string name="category_label_games">ゲーム</string>

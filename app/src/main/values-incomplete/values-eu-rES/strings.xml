@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Partekatu %s erabiltzailearekin</string>
     <string name="abc_toolbar_collapse_description">Tolestu</string>
     <string name="app_label">Hasierako pantaila</string>
-    <string name="app_name">Leanback abiarazlea</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Ordenatu automatikoki azken erabileraren arabera</string>
     <string name="category_label_apps">Aplikazioak</string>
     <string name="category_label_games">Jokoak</string>

@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Дели са апликацијом %s</string>
     <string name="abc_toolbar_collapse_description">Скупи</string>
     <string name="app_label">Почетни екран</string>
-    <string name="app_name">Leanback покретач</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Сортирај аутоматски према недавном коришћењу</string>
     <string name="category_label_apps">Апликације</string>
     <string name="category_label_games">Игре</string>

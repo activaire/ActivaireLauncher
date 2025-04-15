@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s와(과) 공유</string>
     <string name="abc_toolbar_collapse_description">접기</string>
     <string name="app_label">홈 화면</string>
-    <string name="app_name">Leanback 런처</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">최근 사용순으로 자동 분류</string>
     <string name="category_label_apps">앱</string>
     <string name="category_label_games">게임</string>

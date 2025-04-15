@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s உடன் பகிர்</string>
     <string name="abc_toolbar_collapse_description">சுருக்கு</string>
     <string name="app_label">முகப்புத் திரை</string>
-    <string name="app_name">Leanback துவக்கி</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">சமீபத்திய உபயோகத்தின் அடிப்படையில் தானாக வரிசைப்படுத்து</string>
     <string name="category_label_apps">பயன்பாடுகள்</string>
     <string name="category_label_games">கேம்கள்</string>

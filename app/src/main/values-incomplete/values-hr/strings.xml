@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Dijeljenje sa: %s</string>
     <string name="abc_toolbar_collapse_description">Sažmi</string>
     <string name="app_label">Početni zaslon</string>
-    <string name="app_name">Pokretač aplikacije Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Poredaj automatski prema nedavnoj upotrebi</string>
     <string name="category_label_apps">Aplikacije</string>
     <string name="category_label_games">Igre</string>

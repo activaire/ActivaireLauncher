@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s සමඟ බෙදාගන්න</string>
     <string name="abc_toolbar_collapse_description">හකුළන්න</string>
     <string name="app_label">මුල් පිටු තිරය</string>
-    <string name="app_name">Leanback දියත්කරණය</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">මෑත භාවිතය අනුව ස්වයංක්‍රියව අනුපිළිවෙළට සකසන්න</string>
     <string name="category_label_apps">යෙදුම්</string>
     <string name="category_label_games">ක්‍රීඩා</string>

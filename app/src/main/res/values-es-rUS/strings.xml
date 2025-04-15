@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Compartir con %s</string>
     <string name="abc_toolbar_collapse_description">Contraer</string>
     <string name="app_label">Pantalla principal</string>
-    <string name="app_name">Launcher de Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Ordenar automáticamente por uso reciente</string>
     <string name="category_label_apps">Apps</string>
     <string name="category_label_games">Juegos</string>

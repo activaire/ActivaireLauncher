@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Trimiteți la %s</string>
     <string name="abc_toolbar_collapse_description">Restrângeți</string>
     <string name="app_label">Ecran de pornire</string>
-    <string name="app_name">Lansatorul Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Sortați automat în funcție de utilizarea recentă</string>
     <string name="category_label_apps">Aplicații</string>
     <string name="category_label_games">Jocuri</string>

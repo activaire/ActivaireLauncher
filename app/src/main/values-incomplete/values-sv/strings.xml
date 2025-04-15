@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Dela med %s</string>
     <string name="abc_toolbar_collapse_description">Komprimera</string>
     <string name="app_label">Startsida</string>
-    <string name="app_name">Startprogram för Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Sortera automatiskt efter senaste användning</string>
     <string name="category_label_apps">Appar</string>
     <string name="category_label_games">Spel</string>

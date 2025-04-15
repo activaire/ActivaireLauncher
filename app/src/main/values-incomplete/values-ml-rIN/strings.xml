@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s എന്നതുമായി പങ്കിടുക</string>
     <string name="abc_toolbar_collapse_description">ചുരുക്കുക</string>
     <string name="app_label">ഹോം സ്‌ക്രീൻ</string>
-    <string name="app_name">Leanback ലോഞ്ചർ</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">സമീപകാല ഉപയോഗം അനുസരിച്ച് സ്വയമേവ അടുക്കുക</string>
     <string name="category_label_apps">അപ്ലിക്കേഷനുകൾ</string>
     <string name="category_label_games">ഗെയിമുകള്‍</string>

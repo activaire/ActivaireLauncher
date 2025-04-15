@@ -33,7 +33,7 @@ class LauncherApp : Application() {
     private var mOldBlacklistClient: OldBlacklistClient? = null
 
     companion object {
-        private val TAG = if (BuildConfig.DEBUG) "[*]LeanbackOnFire" else "LeanbackOnFire"
+        private val TAG = if (BuildConfig.DEBUG) "[*]ActivaireLauncher" else "ActivaireLauncher"
         private lateinit var appContext: Context
         var inForeground: Boolean = false
         private var sBlacklistMigrated = false

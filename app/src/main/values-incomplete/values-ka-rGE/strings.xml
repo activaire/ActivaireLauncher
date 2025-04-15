@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s-თან გაზიარება</string>
     <string name="abc_toolbar_collapse_description">აკეცვა</string>
     <string name="app_label">მთავარი ეკრანი</string>
-    <string name="app_name">Leanback გამშვები</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">ავტომატურად დალაგება ბოლო გამოყენების მიხედვით</string>
     <string name="category_label_apps">აპები</string>
     <string name="category_label_games">თამაშები</string>

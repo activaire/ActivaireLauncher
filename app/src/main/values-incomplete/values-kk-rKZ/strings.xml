@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s бөлісу</string>
     <string name="abc_toolbar_collapse_description">Тасалау</string>
     <string name="app_label">Негізгі экран</string>
-    <string name="app_name">Leanback іске қосқышы</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Соңғы пайдалану ретімен автоматты сұрыптау</string>
     <string name="category_label_apps">Қолданбалар</string>
     <string name="category_label_games">Ойындар</string>

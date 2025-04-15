@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Delen met %s</string>
     <string name="abc_toolbar_collapse_description">Samenvouwen</string>
     <string name="app_label">Startscherm</string>
-    <string name="app_name">Leanback Launcher</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Automatisch sorteren op basis van recent gebruik</string>
     <string name="category_label_apps">Apps</string>
     <string name="category_label_games">Games</string>

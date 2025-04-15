@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Megosztás a következővel: %s</string>
     <string name="abc_toolbar_collapse_description">Összecsukás</string>
     <string name="app_label">Kezdőképernyő</string>
-    <string name="app_name">Leanback-indító</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Automatikus rendezés a legutóbbi használat időpontja alapján</string>
     <string name="category_label_apps">Alkalmazások</string>
     <string name="category_label_games">Játékok</string>

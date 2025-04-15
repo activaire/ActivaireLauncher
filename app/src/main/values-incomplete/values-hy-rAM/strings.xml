@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Կիսվել %s-ի միջոցով</string>
     <string name="abc_toolbar_collapse_description">Թաքցնել</string>
     <string name="app_label">Հիմնական էկրան</string>
-    <string name="app_name">Leanback գործարկիչ</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Ավտոմատ կերպով տեսակավորել ըստ վերջին օգտագործման</string>
     <string name="category_label_apps">Հավելվածներ</string>
     <string name="category_label_games">Խաղեր</string>

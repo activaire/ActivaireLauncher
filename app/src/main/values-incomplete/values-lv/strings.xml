@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Kopīgot ar %s</string>
     <string name="abc_toolbar_collapse_description">Sakļaut</string>
     <string name="app_label">Sākuma ekrāns</string>
-    <string name="app_name">Leanback palaidējs</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Automātiski kārtot pēc pēdējās izmantošanas reizes</string>
     <string name="category_label_apps">Lietotnes</string>
     <string name="category_label_games">Spēles</string>

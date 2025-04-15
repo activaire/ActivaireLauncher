@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Del med %s</string>
     <string name="abc_toolbar_collapse_description">Skjul</string>
     <string name="app_label">Startskjerm</string>
-    <string name="app_name">Appoversikten for Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Sortér automatisk etter nylig bruk</string>
     <string name="category_label_apps">Apper</string>
     <string name="category_label_games">Spill</string>

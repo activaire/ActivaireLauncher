@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Bagikan dengan %s</string>
     <string name="abc_toolbar_collapse_description">Ciutkan</string>
     <string name="app_label">Layar Utama</string>
-    <string name="app_name">Peluncur Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Otomatis urutkan menurut penggunaan terkini</string>
     <string name="category_label_apps">Aplikasi</string>
     <string name="category_label_games">Game</string>

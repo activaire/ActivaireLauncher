@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s-тай хуваалцах</string>
     <string name="abc_toolbar_collapse_description">Хумих</string>
     <string name="app_label">Үндсэн нүүр</string>
-    <string name="app_name">Leanback Эхлүүлэгч</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Сүүлийн үеийн хэрэглээнд тулгуурлан автоматаар ангилах</string>
     <string name="category_label_apps">Апп</string>
     <string name="category_label_games">Тоглоом</string>

@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Partilhar com %s</string>
     <string name="abc_toolbar_collapse_description">Reduzir</string>
     <string name="app_label">Ecrã principal</string>
-    <string name="app_name">Iniciador Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Ordenar automaticamente por utilização recente</string>
     <string name="category_label_apps">Aplicações</string>
     <string name="category_label_games">Jogos</string>

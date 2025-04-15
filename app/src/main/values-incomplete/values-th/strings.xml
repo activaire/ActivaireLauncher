@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">แชร์กับ %s</string>
     <string name="abc_toolbar_collapse_description">ยุบ</string>
     <string name="app_label">หน้าจอหลัก</string>
-    <string name="app_name">Leanback Launcher</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">จัดเรียงโดยอัตโนมัติตามการใช้งานล่าสุด</string>
     <string name="category_label_apps">แอป</string>
     <string name="category_label_games">เกม</string>

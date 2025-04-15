@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s এর সাথে শেয়ার করুন</string>
     <string name="abc_toolbar_collapse_description">সঙ্কুচিত করুন</string>
     <string name="app_label">হোম স্ক্রীন</string>
-    <string name="app_name">Leanback লঞ্চার</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">সাম্প্রতিক ব্যবহারের ভিত্তিতে স্বয়ংক্রিয়ভাবে সাজান</string>
     <string name="category_label_apps">অ্যাপ্স</string>
     <string name="category_label_games">গেম্স</string>

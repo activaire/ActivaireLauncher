@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s के साथ साझा करें</string>
     <string name="abc_toolbar_collapse_description">संक्षिप्त करें</string>
     <string name="app_label">होम स्क्रीन</string>
-    <string name="app_name">Leanback लॉन्चर</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">हाल ही के उपयोग के अनुसार अपने आप क्रमबद्ध करें</string>
     <string name="category_label_apps">ऐप्लिकेशन</string>
     <string name="category_label_games">गेम</string>

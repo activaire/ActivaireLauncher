@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Chia sẻ với %s</string>
     <string name="abc_toolbar_collapse_description">Thu gọn</string>
     <string name="app_label">Màn hình chính</string>
-    <string name="app_name">Trình chạy Leanback</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Sắp xếp tự động bằng quá trình sử dụng gần đây</string>
     <string name="category_label_apps">Ứng dụng</string>
     <string name="category_label_games">Trò chơi</string>

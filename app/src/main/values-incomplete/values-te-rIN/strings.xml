@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%sతో భాగస్వామ్యం చేయి</string>
     <string name="abc_toolbar_collapse_description">కుదించండి</string>
     <string name="app_label">హోమ్ స్క్రీన్</string>
-    <string name="app_name">Leanback లాంచర్</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">ఇటీవలి వినియోగం ఆధారంగా స్వయంచాలకంగా క్రమబద్ధీకరించు</string>
     <string name="category_label_apps">అనువర్తనాలు</string>
     <string name="category_label_games">గేమ్‌లు</string>

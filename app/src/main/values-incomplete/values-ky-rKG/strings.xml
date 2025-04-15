@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s аркылуу бөлүшүү</string>
     <string name="abc_toolbar_collapse_description">Жыйнап коюу</string>
     <string name="app_label">Башкы экран</string>
-    <string name="app_name">Leanback Ишке киргизгич</string>
+    <string name="app_name">ActivaireLauncher</string>
     <string name="apps_order_pref_label">Акыркы колдонулушу боюнча автоматтык түрдө иргелсин</string>
     <string name="category_label_apps">Колдонмолор</string>
     <string name="category_label_games">Оюндар</string>
