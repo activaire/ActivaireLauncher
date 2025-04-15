@@ -61,8 +61,29 @@ class WallpaperInstaller private constructor(context: Context) {
                 mContext
             )
             var systemBg: Drawable? = null
+            // system wallpaper
+            try {
+                val systemWallpaper = File("/system/etc/default_wallpaper.png")
+                if (systemWallpaper.exists()) {
+                    Log.d(TAG, "Using system wallpaper from ${systemWallpaper.path}")
+                    systemBg = Drawable.createFromPath(systemWallpaper.path)
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading system wallpaper", e)
+            }
+            // custom default wallpaper
+            if (systemBg == null) {
+                try {
+                    systemBg = ResourcesCompat.getDrawable(resources, R.drawable.default_wallpaper, null)
+                    if (systemBg != null) {
+                        Log.d(TAG, "Using custom default wallpaper from drawable resources")
+                    }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error loading custom default wallpaper", e)
+                }
+            }
             // user background
-            if (prefs.getString("wallpaper_image", "")!!.isNotEmpty()) {
+            if (systemBg == null && prefs.getString("wallpaper_image", "")!!.isNotEmpty()) {
                 Log.d(TAG, "wallpaper image " + prefs.getString("wallpaper_image", ""))
                 systemBg = Drawable.createFromPath(prefs.getString("wallpaper_image", ""))
             }
@@ -98,12 +119,14 @@ class WallpaperInstaller private constructor(context: Context) {
             canvas.drawColor(Color.BLACK)
             systemBg?.setBounds(0, 0, wallpaperWidth, wallpaperHeight)
             systemBg?.draw(canvas)
+            /* Gradient mask disabled
             val maskBitmap = BitmapFactory.decodeResource(resources, R.drawable.bg_protection)
             val maskDrawable = BitmapDrawable(resources, maskBitmap)
             maskDrawable.tileModeX = TileMode.REPEAT
             maskDrawable.tileModeY = TileMode.CLAMP
             maskDrawable.setBounds(0, 0, wallpaperWidth, wallpaperHeight)
             maskDrawable.draw(canvas)
+            */
             return bitmap
         }
 

@@ -1581,6 +1581,84 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
                         }
                         icon?.breath()
                     }
+                    // wifi settings
+                    val wifiSettingsVG: ViewGroup? =
+                        findViewById<View>(R.id.wifi_settings) as LinearLayout?
+                    wifiSettingsVG?.let { group ->
+                        val sel = findViewById<ImageView>(R.id.wifi_settings_selection_circle)
+                        sel?.setColorFilter(
+                            RowPreferences.getFrameColor(this),
+                            PorterDuff.Mode.SRC_ATOP
+                        )
+                        val icon = findViewById<ImageView>(R.id.wifi_settings_icon)
+                        group.setOnClickListener {
+                            startWifiSettings()
+                        }
+                        group.setOnFocusChangeListener { _, hasFocus ->
+                            if (hasFocus) {
+                                sel?.alpha = 1.0f
+                                icon?.clearAnimation()
+                                icon?.alpha = 1.0f
+                            } else {
+                                sel?.animate()?.apply {
+                                    interpolator = LinearInterpolator()
+                                    duration = 500
+                                    alpha(0.0f)
+                                    start()
+                                }
+                                icon?.alpha = 1.0f
+                                icon?.breath()
+                            }
+                        }
+                        sel?.alpha = 0.0f
+                        icon?.alpha = 0.0f
+                        icon?.animate()?.apply {
+                            interpolator = LinearInterpolator()
+                            duration = 500
+                            alpha(1.0f)
+                            start()
+                        }
+                        icon?.breath()
+                    }
+                    // date/time settings
+                    val datetimeSettingsVG: ViewGroup? =
+                        findViewById<View>(R.id.datetime_settings) as LinearLayout?
+                    datetimeSettingsVG?.let { group ->
+                        val sel = findViewById<ImageView>(R.id.datetime_settings_selection_circle)
+                        sel?.setColorFilter(
+                            RowPreferences.getFrameColor(this),
+                            PorterDuff.Mode.SRC_ATOP
+                        )
+                        val icon = findViewById<ImageView>(R.id.datetime_settings_icon)
+                        group.setOnClickListener {
+                            startDateTimeSettings()
+                        }
+                        group.setOnFocusChangeListener { _, hasFocus ->
+                            if (hasFocus) {
+                                sel?.alpha = 1.0f
+                                icon?.clearAnimation()
+                                icon?.alpha = 1.0f
+                            } else {
+                                sel?.animate()?.apply {
+                                    interpolator = LinearInterpolator()
+                                    duration = 500
+                                    alpha(0.0f)
+                                    start()
+                                }
+                                icon?.alpha = 1.0f
+                                icon?.breath()
+                            }
+                        }
+                        sel?.alpha = 0.0f
+                        icon?.alpha = 0.0f
+                        icon?.animate()?.apply {
+                            interpolator = LinearInterpolator()
+                            duration = 500
+                            alpha(1.0f)
+                            start()
+                        }
+                        icon?.breath()
+                    }
                     // weather widget update
                     initializeWeather()
                     return
@@ -1603,6 +1681,42 @@ class MainActivity : AppCompatActivity(), OnEditModeChangedListener,
             startActivity(intent)
         } else if (applicationContext.resources.getBoolean(R.bool.side_panel_settings_enabled)) {
             val intent = Intent(this@MainActivity, SettingsActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
+    }
+
+    private fun startWifiSettings() {
+        if (Util.isPackageEnabled(this, "com.android.tv.settings")) {
+            val intent = Intent()
+            intent.component = ComponentName.unflattenFromString("com.android.tv.settings/.connectivity.NetworkActivity")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        } else if (Util.isPackageEnabled(this, "com.amazon.tv.settings.v2")) {
+            val intent = Intent()
+            intent.component = ComponentName.unflattenFromString("com.amazon.tv.settings.v2/.tv.network.NetworkActivity")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        } else {
+            val intent = Intent(Settings.ACTION_WIFI_SETTINGS)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
+    }
+
+    private fun startDateTimeSettings() {
+        if (Util.isPackageEnabled(this, "com.android.tv.settings")) {
+            val intent = Intent()
+            intent.component = ComponentName.unflattenFromString("com.android.tv.settings/.datetime.DateTimeActivity")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        } else if (Util.isPackageEnabled(this, "com.amazon.tv.settings.v2")) {
+            val intent = Intent()
+            intent.component = ComponentName.unflattenFromString("com.amazon.tv.settings.v2/.tv.datetime.DateTimeActivity")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        } else {
+            val intent = Intent(Settings.ACTION_DATE_SETTINGS)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
