@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">%s ကို မျှဝေပါရန်</string>
     <string name="abc_toolbar_collapse_description">ခေါက်ရန်</string>
     <string name="app_label">ပင်မစာမျက်နှာ</string>
-    <string name="app_name">ActivaireLauncher</string>
+    <string name="app_name">Activaire Launcher</string>
     <string name="apps_order_pref_label">လတ်တလောသုံးစွဲမှုအလိုက် အလိုအလျောက်စီပါ</string>
     <string name="category_label_apps">အက်ပ်များ</string>
     <string name="category_label_games">ဂိမ်းများ</string>

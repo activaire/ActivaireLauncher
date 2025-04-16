@@ -59,25 +59,7 @@ class LaunchPointList(ctx: Context) {
         mContext = ctx
         rawFilter = object : RawFilter() {
             override fun include(point: ResolveInfo?): Boolean {
-                return when {
-                    point?.toString()
-                        ?.contains("com.amazon.tv.leanbacklauncher.MainActivity") == true -> true
-
-                    point?.toString()
-                        ?.contains("com.amazon.tv.launcher/.ui.DebugActivity") == true -> true
-
-                    point?.toString()
-                        ?.contains("com.amazon.bueller.photos/com.amazon.gallery.thor.app.activity.LauncherActivity") == true -> true
-
-                    point?.toString()
-                        ?.contains("com.samabox.dashboard/.ui.apps.MainActivity") == true -> true
-
-                    point?.activityInfo?.packageName?.startsWith("com.amazon.avod") == true -> true // FTV Video Player
-                    point?.activityInfo?.packageName?.startsWith("com.amazon.ags.app") == true -> true // Game Circle
-                    point?.activityInfo?.packageName?.startsWith("com.amazon.ftv.profilepicker") == true -> true
-                    point?.activityInfo?.packageName?.startsWith("com.amazon.ftv.screensaver") == true -> true
-                    else -> false
-                }
+                return true  // Show all apps
             }
         }
         if (prefUtil == null) {
@@ -178,41 +160,36 @@ class LaunchPointList(ctx: Context) {
             val launcherItems: MutableList<LaunchPoint> = LinkedList()
             val pkgMan = mContext.packageManager
             val normLaunchPoints = pkgMan.queryIntentActivities(
-                mainIntent, PackageManager.GET_META_DATA
+                mainIntent, PackageManager.GET_META_DATA or PackageManager.GET_DISABLED_COMPONENTS
             )
             val tvLaunchPoints = pkgMan.queryIntentActivities(
-                tvIntent, PackageManager.GET_META_DATA
+                tvIntent, PackageManager.GET_META_DATA or PackageManager.GET_DISABLED_COMPONENTS
             )
             val rawComponents: MutableMap<String, String> = HashMap()
             val allLaunchPoints: MutableList<ResolveInfo> = ArrayList()
-            if (tvLaunchPoints.size > 0) {
-                for (itemTvLaunchPoint in tvLaunchPoints) {
-                    if (itemTvLaunchPoint.activityInfo != null &&
-                        itemTvLaunchPoint.activityInfo.packageName != null &&
-                        itemTvLaunchPoint.activityInfo.name != null &&
-                        !rawFilter.include(itemTvLaunchPoint)
-                    ) {
-                        rawComponents[itemTvLaunchPoint.activityInfo.packageName] =
-                            itemTvLaunchPoint.activityInfo.name
-                        allLaunchPoints.add(itemTvLaunchPoint)
-                    }
+            
+            // Add TV launch points first
+            for (itemTvLaunchPoint in tvLaunchPoints) {
+                if (itemTvLaunchPoint.activityInfo != null &&
+                    itemTvLaunchPoint.activityInfo.packageName != null &&
+                    itemTvLaunchPoint.activityInfo.name != null
+                ) {
+                    rawComponents[itemTvLaunchPoint.activityInfo.packageName] =
+                        itemTvLaunchPoint.activityInfo.name
+                    allLaunchPoints.add(itemTvLaunchPoint)
                 }
             }
-            if (normLaunchPoints.size > 0) {
-                for (itemRawLaunchPoint in normLaunchPoints) {
-                    if (itemRawLaunchPoint.activityInfo != null && itemRawLaunchPoint.activityInfo.packageName != null && itemRawLaunchPoint.activityInfo.name != null) {
-                        // any system app that isn't TV-optimized likely isn't something the user needs or wants [except for Amazon Music & Photos (which apparently don't get leanback launchers :\)]
-                        if ((prefUtil!!.isAllAppsShown()) ||
-                            !Util.isSystemApp(mContext, itemRawLaunchPoint.activityInfo.packageName)
-                        ) {
-                            if (!rawComponents.containsKey(itemRawLaunchPoint.activityInfo.packageName) &&
-                                itemRawLaunchPoint.activityInfo.packageName != mContext.packageName &&
-                                !rawFilter.include(itemRawLaunchPoint) // filter
-                            ) {
-                                allLaunchPoints.add(itemRawLaunchPoint)
-                            } // TODO optimize & don't hardcode
-                        }
-                    }
+            
+            // Add regular launch points if not already added
+            for (itemNormLaunchPoint in normLaunchPoints) {
+                if (itemNormLaunchPoint.activityInfo != null &&
+                    itemNormLaunchPoint.activityInfo.packageName != null &&
+                    itemNormLaunchPoint.activityInfo.name != null &&
+                    !rawComponents.containsKey(itemNormLaunchPoint.activityInfo.packageName)
+                ) {
+                    rawComponents[itemNormLaunchPoint.activityInfo.packageName] =
+                        itemNormLaunchPoint.activityInfo.name
+                    allLaunchPoints.add(itemNormLaunchPoint)
                 }
             }
             for (x in 0 until allLaunchPoints.size) {

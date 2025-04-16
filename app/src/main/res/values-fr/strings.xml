@@ -20,7 +20,7 @@
     <string name="abc_shareactionprovider_share_with_application">Partager avec %s</string>
     <string name="abc_toolbar_collapse_description">Réduire</string>
     <string name="app_label">"Écran d'accueil"</string>
-    <string name="app_name">ActivaireLauncher</string>
+    <string name="app_name">Activaire Launcher</string>
     <string name="apps_order_pref_label">Trier automatiquement en fonction de la dernière utilisation</string>
     <string name="category_label_apps">Applications</string>
     <string name="category_label_games">Jeux</string>

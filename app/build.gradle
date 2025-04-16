@@ -35,8 +35,8 @@ android {
         minSdkVersion 22
         //noinspection ExpiredTargetSdkVersion,OldTargetApi
         targetSdkVersion 29
-        versionCode 60
-        versionName "1.60"
+        versionCode 61
+        versionName "1.61"
         vectorDrawables.useSupportLibrary = true
         resourceConfigurations += ['en', 'ru', 'uk', 'it', 'fr', 'es', 'de', 'pl', 'zh-rCN']
         setProperty("archivesBaseName", "ActivaireLauncher-" + versionName)
